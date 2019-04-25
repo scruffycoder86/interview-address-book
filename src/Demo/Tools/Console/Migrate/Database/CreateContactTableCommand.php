@@ -21,7 +21,7 @@ namespace Distinc\Demo\Tools\Console\Migrate\Database
 
         protected function configure()
         {
-            $this->setName('table:create:contact')
+            $this->setName('table:create:contacts')
                 ->setDescription('Create an instance of our AddressBook System\'s initial Database tables called `contacts`')
                 ->setHelp('This command creates initial database table instance');
 
