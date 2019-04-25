@@ -1,0 +1,32 @@
+{
+  "name": "realm-digital",
+  "version": "1.0.0",
+  "description": "Implement a web application where a user can manage an address book",
+  "main": "index.js",
+  "dependencies": {
+    "cross-env": "^5.2.0",
+    "node-sass": "^4.11.0"
+  },
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "bootstrap": "^4.3.1",
+    "bootstrap-vue": "^2.0.0-rc.19",
+    "laravel-mix": "^4.0.15",
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.6"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scruffycoder86/interview-address-book.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scruffycoder86/interview-address-book/issues"
+  },
+  "homepage": "https://github.com/scruffycoder86/interview-address-book#readme"
+}

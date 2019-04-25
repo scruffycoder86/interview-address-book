@@ -1,0 +1,29 @@
+{
+    "config":{
+        "bin-dir": "bin"
+    },
+    "require": {
+        "illuminate/routing": "^5.7",
+        "illuminate/events": "^5.7",
+        "illuminate/database": "^5.8",
+        "illuminate/console": "^5.8",
+        "vlucas/phpdotenv": "^3.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.4",
+        "behat/behat": "^3.5",
+        "phpspec/phpspec": "^5.1",
+        "fzaninotto/faker": "^1.8",
+        "doctrine/dbal": "^2.9"
+    },
+    "autoload":{
+        "psr-4":{
+            "Distinc\\": [ "src/" ]
+        }
+    },
+    "autoload-dev":{
+        "psr-4":{
+            "Distinc\\": [ "app/" ]
+        }
+    }
+}
