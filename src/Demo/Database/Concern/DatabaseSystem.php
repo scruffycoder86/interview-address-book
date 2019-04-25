@@ -3,6 +3,7 @@
 namespace Distinc\Demo\Database\Concern
 {
     use Illuminate\Database\Capsule\Manager as Capsule;
+    use Illuminate\Support\Traits\CapsuleManagerTrait;
 
     /**
      * Trait DatabaseSystem
@@ -15,10 +16,16 @@ namespace Distinc\Demo\Database\Concern
      */
     trait DatabaseSystem
     {
+
         /**
-         * @var $capsule
+         * @var Capsule $capsule
          */
         protected $capsule;
+
+        /**
+         * @var bool $isInitialized
+         */
+        protected $isInitialized = false;
 
         /**
          * @return void
@@ -29,18 +36,23 @@ namespace Distinc\Demo\Database\Concern
 
             $capsule->addConnection(static::options());
 
-            /**
-             * We only want to set our Capsule instance as
-             * global at Application Level
-             */
-            if(!$this->isRunningInConsole()){
+            $capsule->setAsGlobal();
 
-                $capsule->setAsGlobal();
-            }
+            $capsule->bootEloquent();
+
+            $this->capsule = $capsule;
         }
 
         /**
-         * Your .env file must be present and loaded onto the memory
+         * @return Capsule
+         */
+        public function getCapsule()
+        {
+            return $this->capsule;
+        }
+
+        /**
+         * Your .env file must be present and loaded onto memory for best results
          *
          * @return array
          */
