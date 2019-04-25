@@ -52,6 +52,8 @@ namespace Distinc\Demo\Tools\Console\Migrate\Database
                     $table->timestamps();
 
                 });
+
+                $output->writeln("BANNER NOTE: Table `contact_details` has been created.");
             }else{
                 $output->writeln("PLEASE NOTE: Table `contact_details` has already been created.");
             }
