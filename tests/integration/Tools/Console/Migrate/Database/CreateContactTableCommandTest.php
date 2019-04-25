@@ -28,6 +28,9 @@ class CreateContactTableCommandTest extends \PHPUnit\Framework\TestCase
          */
         $this->assertIsString($commandTester->getDisplay());
 
+        /** Source of truth assertion for now even thoough unncessary */
+        $this->assertTrue(Illuminate\Database\Capsule\Manager::schema()->hasTable('contacts'));
+
     }
 
 }
