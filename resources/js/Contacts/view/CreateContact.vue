@@ -55,12 +55,12 @@
 </template>
 
 <script>
-    import DetailComponent from './../component/DetailComponent';
+    //import DetailComponent from './../component/DetailComponent';
     import BCol from "bootstrap-vue/src/components/layout/col";
 
     export default {
 
-        components: {BCol, DetailComponent },
+        components: {BCol },
 
         data() {
 

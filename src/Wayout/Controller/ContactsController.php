@@ -2,9 +2,10 @@
 
 namespace Distinc\Wayout\Controller;
 
-use Distinc\Wayout\Domain\Repository\ContactsRepository;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use Distinc\Wayout\Service\ContactService;
+use Distinc\Wayout\Domain\Repository\ContactsRepository;
 
 /**
  * Class ContactsController
@@ -25,9 +26,12 @@ class ContactsController
      */
     public function index()
     {
-        return new JsonResponse(
+        $payload = ContactService::fixPayload(
             $this->contactsRepository->getList()
-                ->toArray(), 200
+                ->toArray()
+        );
+
+        return new JsonResponse($payload, 200
         );
     }
 

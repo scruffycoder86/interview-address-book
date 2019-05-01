@@ -1,12 +1,14 @@
 <template>
     <div>
         <h5>Contacts</h5>
+        <demo-table-list :items="items"></demo-table-list>
     </div>
 </template>
 
 <script>
 
     import axios from 'axios';
+    import DemoTableList from './../component/TableList';
 
     let api = axios.create({
         baseURL: process.env.MIX_SERVICE_ID ,
@@ -15,6 +17,8 @@
     });
 
     export default {
+
+        components: { DemoTableList },
 
         data () {
 
