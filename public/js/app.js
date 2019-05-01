@@ -1791,7 +1791,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "demo-table-list",
   props: ["items"],
@@ -1906,6 +1905,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 var api = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
@@ -1932,6 +1934,11 @@ var api = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
       console.log(error);
     });
     this.items.push(contacts);
+  },
+  methods: {
+    showAlert: function showAlert() {
+      return this.items.length;
+    }
   }
 });
 
@@ -34043,6 +34050,28 @@ var render = function() {
     "div",
     [
       _c("h5", [_vm._v("Contacts")]),
+      _vm._v(" "),
+      _c(
+        "p",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.showAlert,
+              expression: "showAlert"
+            }
+          ]
+        },
+        [
+          _c("b-alert", [
+            _vm._v(
+              'You currently have no Contacts in the system. Click "Add New" to create an entry.'
+            )
+          ])
+        ],
+        1
+      ),
       _vm._v(" "),
       _c("demo-table-list", { attrs: { items: _vm.items } })
     ],

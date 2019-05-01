@@ -2,7 +2,6 @@
     <b-row>
         <b-col>
             <b-table striped hover :fields="fields" :items="items">
-
                 <template slot="first_name" slot-scope="item">
                     {{ item.item[0].first_name }}
                 </template>

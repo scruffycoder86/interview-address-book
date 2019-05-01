@@ -1,6 +1,9 @@
 <template>
     <div>
         <h5>Contacts</h5>
+        <p v-show="showAlert">
+            <b-alert>You currently have no Contacts in the system. Click "Add New" to create an entry.</b-alert>
+        </p>
         <demo-table-list :items="items"></demo-table-list>
     </div>
 </template>
@@ -39,6 +42,14 @@
             });
 
             this.items.push(contacts);
+        },
+
+        methods: {
+
+            showAlert() {
+
+                return (this.items.length);
+            }
         }
     }
 </script>
