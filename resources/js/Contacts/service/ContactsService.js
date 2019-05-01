@@ -1,23 +1,25 @@
 'use strict';
 
-import AxiosService from 'axios';
+import axios from 'axios';
 
-let axios = AxiosService.create({
+let api = axios.create({
     baseURL: process.env.MIX_SERVICE_ID ,
-    headers: {'Content-Type': 'application/json'}
+    headers: {'Content-Type': 'application/json'},
+    crossdomain: true
 });
 
 class ContactsService
 {
     static async fetch() {
 
-        axios.get('/api/v1/companies')
+        api.get('/api/contacts')
             .then(function (resp) {
-                app.companies = resp.data;
+
+                return resp.data;
             })
-            .catch(function (resp) {
-                console.log(resp);
-                alert("Could not load companies");
+            .catch(function (err) {
+
+                return err;
             });
     }
 }

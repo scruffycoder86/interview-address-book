@@ -6,6 +6,7 @@ use Illuminate\Routing\Router;
  * My Distinc Wayout API Routes
  */
 $router->group([
+    'middleware' => 'cors',
     'namespace' => 'Distinc\Wayout\Controller',
     'prefix' => 'api/contacts'
 ], function (Router $router) {
