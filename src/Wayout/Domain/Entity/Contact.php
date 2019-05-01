@@ -13,7 +13,7 @@ namespace Distinc\Demo\Domain\Entity
 
         public function details()
         {
-            return $this->hasManybelongsTo(Contact::class);
+            return $this->hasMany(ContactDetail::class);
         }
     }
 }

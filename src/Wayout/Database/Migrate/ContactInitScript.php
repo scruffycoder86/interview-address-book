@@ -3,7 +3,8 @@
 namespace Distinc\Demo\Tools\Console\Migrate\Database
 {
     use Symfony\Component\Console\Command\Command;
-    use Distinc\Demo\Database\Concern\DatabaseSystem;
+    use Symfony\Component\Console\Helper\ProgressBar;
+    use Distinc\Demo\Database\Concern\ConnectionConcern;
     use Symfony\Component\Console\Input\InputInterface;
     use Symfony\Component\Console\Output\OutputInterface;
 
@@ -15,9 +16,9 @@ namespace Distinc\Demo\Tools\Console\Migrate\Database
      *
      * @package Distinc\Demo\Tools\Console\Migrate\Database
      */
-    class CreateContactTableCommand extends Command
+    class ContactInitScript extends Command
     {
-        use DatabaseSystem;
+        use ConnectionConcern;
 
         protected function configure()
         {
@@ -33,6 +34,11 @@ namespace Distinc\Demo\Tools\Console\Migrate\Database
 
         protected function execute(InputInterface $input, OutputInterface $output)
         {
+            $progress = new ProgressBar($output);
+            $progress->start();
+
+            $i = 0;
+
             $schemaBuilder = $this->getCapsule()
                 ->getDatabaseManager()
                 ->getSchemaBuilder();
@@ -51,7 +57,14 @@ namespace Distinc\Demo\Tools\Console\Migrate\Database
 
                 });
 
-                $output->writeln("BANNER NOTE: Table `contacts` has been created.");
+                while ($i++ < 100) {
+                    usleep(300000);
+                    $progress->advance();
+                }
+
+                $output->write("\n");
+                $output->write("\nBANNER NOTE: Table `contacts` has been created.\n");
+                $output->write("\n");
             }else{
                 $output->writeln("PLEASE NOTE: Table `contacts` has already been created.");
             }
