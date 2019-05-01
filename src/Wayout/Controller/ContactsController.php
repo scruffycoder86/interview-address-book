@@ -3,6 +3,7 @@
 namespace Distinc\Wayout\Controller;
 
 use Distinc\Wayout\Domain\Repository\ContactsRepository;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 /**
@@ -24,8 +25,10 @@ class ContactsController
      */
     public function index()
     {
-        return $this->contactsRepository->getList()
-            ->toArray();
+        return new JsonResponse(
+            $this->contactsRepository->getList()
+                ->toArray(), 200
+        );
     }
 
     /**
