@@ -30,3 +30,7 @@ $router->group([
         'uses' => 'ContactsController@destroy'
     ]);
 });
+
+$router->get('/', function () {
+    return '';
+});
