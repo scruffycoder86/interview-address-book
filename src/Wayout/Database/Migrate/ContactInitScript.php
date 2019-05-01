@@ -1,73 +1,30 @@
 <?php
 
-namespace Distinc\Demo\Tools\Console\Migrate\Database
+namespace Distinc\Wayout\Database\Migrate;
+
+use Illuminate\Database\Schema\Blueprint;
+use Distinc\Wayout\Database\Concern\AbstractInitScript;
+
+/**
+ * Class ContactInitScript
+ *
+ * @package Distinc\Wayout\Database\Migrate
+ */
+class ContactInitScript extends AbstractInitScript
 {
-    use Symfony\Component\Console\Command\Command;
-    use Symfony\Component\Console\Helper\ProgressBar;
-    use Distinc\Demo\Database\Concern\ConnectionConcern;
-    use Symfony\Component\Console\Input\InputInterface;
-    use Symfony\Component\Console\Output\OutputInterface;
+    public $name = 'contacts';
 
-    /**
-     * Class MigrateTablesCommand
-     *
-     * This command leaves room for detail and expansion with its
-     * concern and contract in terms of true representation of the idea
-     *
-     * @package Distinc\Demo\Tools\Console\Migrate\Database
-     */
-    class ContactInitScript extends Command
+    public function execute()
     {
-        use ConnectionConcern;
+        $this->create('contacts', function(Blueprint $table){
 
-        protected function configure()
-        {
-            $this->setName('table:create:contacts')
-                ->setDescription('Create an instance of our AddressBook System\'s initial Database tables called `contacts`')
-                ->setHelp('This command creates initial database table instance');
+            $table->increments('id');
 
-            if(!$this->isInitialized){
+            $table->string('first_name');
 
-                $this->init();
-            }
-        }
+            $table->string('last_name');
 
-        protected function execute(InputInterface $input, OutputInterface $output)
-        {
-            $progress = new ProgressBar($output);
-            $progress->start();
-
-            $i = 0;
-
-            $schemaBuilder = $this->getCapsule()
-                ->getDatabaseManager()
-                ->getSchemaBuilder();
-
-            if(! $schemaBuilder->hasTable('contacts')){
-
-                $schemaBuilder->create('contacts', function($table){
-
-                    $table->increments('id');
-
-                    $table->string('first_name');
-
-                    $table->string('last_name');
-
-                    $table->timestamps();
-
-                });
-
-                while ($i++ < 100) {
-                    usleep(300000);
-                    $progress->advance();
-                }
-
-                $output->write("\n");
-                $output->write("\nBANNER NOTE: Table `contacts` has been created.\n");
-                $output->write("\n");
-            }else{
-                $output->writeln("PLEASE NOTE: Table `contacts` has already been created.");
-            }
-        }
+            $table->timestamps();
+        });
     }
 }

@@ -1,43 +1,25 @@
 <?php
 
-namespace Distinc\Wayout\Database\Migrations
+namespace Distinc\Wayout\Database\Migrate;
+
+use Illuminate\Database\Schema\Blueprint;
+use Distinc\Wayout\Database\Concern\AbstractInitScript;
+
+class ContactDetailInitScript extends AbstractInitScript
 {
-    use Illuminate\Support\Facades\Schema;
+    protected $name = 'contact_details';
 
-    use Distinc\Wayout\Concern\ConnectionConcern;
-
-    class ContactDetailInitScript
+    public function execute()
     {
-        use ConnectionConcern;
+        $this->create('contact_details', function(Blueprint $table){
 
-        protected $name = 'contact_detail';
+            $table->increments('id');
 
-        protected function configure()
-        {
-            if(!$this->isInitialized){
+            $table->json('value')->nullable(false);
 
-                $this->init();
-            }
-        }
+            $table->integer('contact_id');
 
-        protected function execute()
-        {
-            Schema::create('contact_details', function($table){
-
-                $table->increments('id');
-
-                $table->json('value')->nullable(false);
-
-                $table->integer('contact_id');
-
-                $table->timestamps();
-
-            });
-        }
-
-        public function getName()
-        {
-            return $this->name;
-        }
+            $table->timestamps();
+        });
     }
 }

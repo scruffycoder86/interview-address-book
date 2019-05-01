@@ -1,32 +1,28 @@
 {
-  "name": "realm-digital",
-  "version": "1.0.0",
-  "description": "Implement a web application where a user can manage an address book",
-  "main": "index.js",
-  "dependencies": {
-    "cross-env": "^5.2.0",
-    "node-sass": "^4.11.0"
+  "private": true,
+  "scripts": {
+    "dev": "NODE_ENV=development webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "NODE_ENV=development webpack --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
-  "devDependencies": {
+  "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
     "bootstrap-vue": "^2.0.0-rc.19",
+    "file-saver": "^2.0.1",
     "laravel-mix": "^4.0.15",
+    "mapbox-gl": "^0.51.0",
+    "mapbox-gl-vue": "^1.9.0",
+    "resolve-url-loader": "^2.3.1",
+    "sass": "^1.17.3",
+    "sass-loader": "^7.1.0",
+    "vee-validate": "^2.2.5",
     "vue": "^2.6.10",
-    "vue-router": "^3.0.6"
+    "vue-router": "^3.0.6",
+    "vue-template-compiler": "^2.6.10"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/scruffycoder86/interview-address-book.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/scruffycoder86/interview-address-book/issues"
-  },
-  "homepage": "https://github.com/scruffycoder86/interview-address-book#readme"
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.8.1"
+  }
 }
