@@ -1754,6 +1754,121 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Contacts/component/ContactForm.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Contacts/component/ContactForm.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var api = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
+  baseURL: "http://contacts.devbox.red24.com",
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  crossdomain: true
+});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'contact-form',
+  data: function data() {
+    return {
+      form: {
+        first_name: '',
+        last_name: '',
+        number: '',
+        email: ''
+      },
+      details: []
+    };
+  },
+  methods: {
+    addDetail: function addDetail(event) {
+      var entry = {
+        number: this.form.number,
+        email: this.form.email
+      };
+      this.details.push(entry);
+      event.preventDefault();
+    },
+    onReset: function onReset() {},
+    onSubmit: function onSubmit(event) {
+      alert(JSON.stringify(this.form));
+      api.post('/api/contacts', {
+        params: {
+          first_name: this.form.first_name,
+          last_name: this.form.last,
+          details: this.details
+        }
+      }).then(function (response) {
+        this.$router.push({
+          name: "Contact List"
+        });
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Contacts/component/TableList.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Contacts/component/TableList.vue?vue&type=script&lang=js& ***!
@@ -1953,7 +2068,7 @@ var api = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var bootstrap_vue_src_components_layout_col__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap-vue/src/components/layout/col */ "./node_modules/bootstrap-vue/src/components/layout/col.js");
+/* harmony import */ var _component_ContactForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../component/ContactForm */ "./resources/js/Contacts/component/ContactForm.vue");
 //
 //
 //
@@ -1963,97 +2078,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//import DetailComponent from './../component/DetailComponent';
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    BCol: bootstrap_vue_src_components_layout_col__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
-  data: function data() {
-    return {
-      form: {
-        first_name: '',
-        last_name: '',
-        number: '',
-        email: ''
-      },
-      detail: [{
-        numbers: [],
-        emails: []
-      }],
-      show: true
-    };
+    ContactForm: _component_ContactForm__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   methods: {
-    onSubmit: function onSubmit(evt) {
-      evt.preventDefault();
-      alert(JSON.stringify(this.form));
-    },
-    onReset: function onReset(evt) {
-      var _this = this;
-
-      evt.preventDefault();
-      this.form.first_name = '';
-      this.form.last_name = '';
-      this.form.number = '';
-      this.form.email = '';
-      this.show = false;
-      this.$nextTick(function () {
-        _this.show = true;
-      });
-    },
-    addDetail: function addDetail(evt) {
-      evt.preventDefault();
-      console.log(evt);
-    },
-    viewContacts: function viewContacts() {}
+    onReset: function onReset() {},
+    onSubmit: function onSubmit(event) {}
   }
 });
 
@@ -29112,959 +29144,6 @@ __webpack_require__(/*! ./_iter-define */ "./node_modules/bootstrap-vue/node_mod
 
 /***/ }),
 
-/***/ "./node_modules/bootstrap-vue/src/components/layout/col.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/src/components/layout/col.js ***!
-  \*****************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_functional_data_merge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-functional-data-merge */ "./node_modules/vue-functional-data-merge/dist/lib.esm.js");
-/* harmony import */ var _utils_memoize__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/memoize */ "./node_modules/bootstrap-vue/src/utils/memoize.js");
-/* harmony import */ var _utils_suffix_prop_name__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/suffix-prop-name */ "./node_modules/bootstrap-vue/src/utils/suffix-prop-name.js");
-/* harmony import */ var _utils_array__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/array */ "./node_modules/bootstrap-vue/src/utils/array.js");
-/* harmony import */ var _utils_inspect__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/inspect */ "./node_modules/bootstrap-vue/src/utils/inspect.js");
-/* harmony import */ var _utils_object__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/object */ "./node_modules/bootstrap-vue/src/utils/object.js");
-/* harmony import */ var _utils_config__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/config */ "./node_modules/bootstrap-vue/src/utils/config.js");
-
-
-
-
-
-
-
-
-/**
- * Generates a prop object with a type of
- * [Boolean, String, Number]
- */
-function boolStrNum() {
-  return {
-    type: [Boolean, String, Number],
-    default: false
-  }
-}
-
-/**
- * Generates a prop object with a type of
- * [String, Number]
- */
-function strNum() {
-  return {
-    type: [String, Number],
-    default: null
-  }
-}
-
-// Memoized function for better performance on generating class names
-const computeBkPtClass = Object(_utils_memoize__WEBPACK_IMPORTED_MODULE_1__["default"])(function computeBkPt(type, breakpoint, val) {
-  let className = type
-  if (Object(_utils_inspect__WEBPACK_IMPORTED_MODULE_4__["isUndefined"])(val) || Object(_utils_inspect__WEBPACK_IMPORTED_MODULE_4__["isNull"])(val) || val === false) {
-    return undefined
-  }
-  if (breakpoint) {
-    className += `-${breakpoint}`
-  }
-  // Handling the boolean style prop when accepting [Boolean, String, Number]
-  // means Vue will not convert <b-col sm></b-col> to sm: true for us.
-  // Since the default is false, an empty string indicates the prop's presence.
-  if (type === 'col' && (val === '' || val === true)) {
-    // .col-md
-    return className.toLowerCase()
-  }
-  // .order-md-6
-  className += `-${val}`
-  return className.toLowerCase()
-})
-
-// Cached copy of the breakpoint prop names
-let breakpointPropMap = Object(_utils_object__WEBPACK_IMPORTED_MODULE_5__["create"])(null)
-
-// Lazy evaled props factory for BCol
-const generateProps = () => {
-  // Grab the breakpoints from the cached config (exclude the '' (xs) breakpoint)
-  const breakpoints = Object(_utils_config__WEBPACK_IMPORTED_MODULE_6__["getBreakpointsUpCached"])().filter(Boolean)
-
-  // Supports classes like: .col-sm, .col-md-6, .col-lg-auto
-  const breakpointCol = breakpoints.reduce((propMap, breakpoint) => {
-    if (breakpoint) {
-      // We filter out the '' breakpoint (xs), as making a prop name ''
-      // would not work. The `cols` prop is used for `xs`
-      propMap[breakpoint] = boolStrNum()
-    }
-    return propMap
-  }, Object(_utils_object__WEBPACK_IMPORTED_MODULE_5__["create"])(null))
-
-  // Supports classes like: .offset-md-1, .offset-lg-12
-  const breakpointOffset = breakpoints.reduce((propMap, breakpoint) => {
-    propMap[Object(_utils_suffix_prop_name__WEBPACK_IMPORTED_MODULE_2__["default"])(breakpoint, 'offset')] = strNum()
-    return propMap
-  }, Object(_utils_object__WEBPACK_IMPORTED_MODULE_5__["create"])(null))
-
-  // Supports classes like: .order-md-1, .order-lg-12
-  const breakpointOrder = breakpoints.reduce((propMap, breakpoint) => {
-    propMap[Object(_utils_suffix_prop_name__WEBPACK_IMPORTED_MODULE_2__["default"])(breakpoint, 'order')] = strNum()
-    return propMap
-  }, Object(_utils_object__WEBPACK_IMPORTED_MODULE_5__["create"])(null))
-
-  // For loop doesn't need to check hasOwnProperty
-  // when using an object created from null
-  breakpointPropMap = Object(_utils_object__WEBPACK_IMPORTED_MODULE_5__["assign"])(Object(_utils_object__WEBPACK_IMPORTED_MODULE_5__["create"])(null), {
-    col: Object(_utils_object__WEBPACK_IMPORTED_MODULE_5__["keys"])(breakpointCol),
-    offset: Object(_utils_object__WEBPACK_IMPORTED_MODULE_5__["keys"])(breakpointOffset),
-    order: Object(_utils_object__WEBPACK_IMPORTED_MODULE_5__["keys"])(breakpointOrder)
-  })
-
-  // Return the generated props
-  return {
-    // Generic flexbox .col (xs)
-    col: {
-      type: Boolean,
-      default: false
-    },
-    // .col-[1-12]|auto  (xs)
-    cols: strNum(),
-    // Breakpoint Specific props
-    ...breakpointCol,
-    offset: strNum(),
-    ...breakpointOffset,
-    order: strNum(),
-    ...breakpointOrder,
-    // Flex alignment
-    alignSelf: {
-      type: String,
-      default: null,
-      validator: str =>
-        Object(_utils_array__WEBPACK_IMPORTED_MODULE_3__["arrayIncludes"])(['auto', 'start', 'end', 'center', 'baseline', 'stretch'], str)
-    },
-    tag: {
-      type: String,
-      default: 'div'
-    }
-  }
-}
-
-// We do not use Vue.extend here as that would evaluate the props
-// immediately, which we do not want to happen
-// @vue/component
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'BCol',
-  functional: true,
-  get props() {
-    // Allow props to be lazy evaled on first access and
-    // then they become a non-getter afterwards.
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get#Smart_self-overwriting_lazy_getters
-    delete this.props
-    // eslint-disable-next-line no-return-assign
-    return (this.props = generateProps())
-  },
-  render(h, { props, data, children }) {
-    const classList = []
-    // Loop through `col`, `offset`, `order` breakpoint props
-    for (const type in breakpointPropMap) {
-      // Returns colSm, offset, offsetSm, orderMd, etc.
-      const keys = breakpointPropMap[type]
-      for (let i = 0; i < keys.length; i++) {
-        // computeBkPt(col, colSm => Sm, value=[String, Number, Boolean])
-        const c = computeBkPtClass(type, keys[i].replace(type, ''), props[keys[i]])
-        // If a class is returned, push it onto the array.
-        if (c) {
-          classList.push(c)
-        }
-      }
-    }
-
-    const hasColClasses = classList.some(className => /^col-/.test(className))
-
-    classList.push({
-      // Default to .col if no other col-{bp}-* classes generated nor `cols` specified.
-      col: props.col || (!hasColClasses && !props.cols),
-      [`col-${props.cols}`]: props.cols,
-      [`offset-${props.offset}`]: props.offset,
-      [`order-${props.order}`]: props.order,
-      [`align-self-${props.alignSelf}`]: props.alignSelf
-    })
-
-    return h(props.tag, Object(vue_functional_data_merge__WEBPACK_IMPORTED_MODULE_0__["mergeData"])(data, { class: classList }), children)
-  }
-});
-
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/src/utils/array.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/bootstrap-vue/src/utils/array.js ***!
-  \*******************************************************/
-/*! exports provided: from, isArray, arrayIncludes, concat */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "from", function() { return from; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isArray", function() { return isArray; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "arrayIncludes", function() { return arrayIncludes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "concat", function() { return concat; });
-/* harmony import */ var core_js_library_fn_array_from__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/library/fn/array/from */ "./node_modules/bootstrap-vue/node_modules/core-js/library/fn/array/from.js");
-/* harmony import */ var core_js_library_fn_array_from__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_library_fn_array_from__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var core_js_library_fn_array_is_array__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/library/fn/array/is-array */ "./node_modules/bootstrap-vue/node_modules/core-js/library/fn/array/is-array.js");
-/* harmony import */ var core_js_library_fn_array_is_array__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_library_fn_array_is_array__WEBPACK_IMPORTED_MODULE_1__);
-
-
-
-// --- Static ---
-
-const from = Array.from || core_js_library_fn_array_from__WEBPACK_IMPORTED_MODULE_0___default.a
-const isArray = Array.isArray || core_js_library_fn_array_is_array__WEBPACK_IMPORTED_MODULE_1___default.a
-
-// --- Instance ---
-
-const arrayIncludes = (array, value) => array.indexOf(value) !== -1
-const concat = (...args) => Array.prototype.concat.apply([], args)
-
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/src/utils/clone-deep.js":
-/*!************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/src/utils/clone-deep.js ***!
-  \************************************************************/
-/*! exports provided: cloneDeep, default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneDeep", function() { return cloneDeep; });
-/* harmony import */ var _inspect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./inspect */ "./node_modules/bootstrap-vue/src/utils/inspect.js");
-/* harmony import */ var _object__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./object */ "./node_modules/bootstrap-vue/src/utils/object.js");
-
-
-
-const cloneDeep = (obj, defaultValue = obj) => {
-  if (Object(_inspect__WEBPACK_IMPORTED_MODULE_0__["isArray"])(obj)) {
-    return obj.reduce((result, val) => [...result, cloneDeep(val, val)], [])
-  }
-  if (Object(_inspect__WEBPACK_IMPORTED_MODULE_0__["isPlainObject"])(obj)) {
-    return Object(_object__WEBPACK_IMPORTED_MODULE_1__["keys"])(obj).reduce(
-      (result, key) => ({ ...result, [key]: cloneDeep(obj[key], obj[key]) }),
-      {}
-    )
-  }
-  return defaultValue
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (cloneDeep);
-
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/src/utils/config.js":
-/*!********************************************************!*\
-  !*** ./node_modules/bootstrap-vue/src/utils/config.js ***!
-  \********************************************************/
-/*! exports provided: setConfig, resetConfig, getConfig, getDefaults, getConfigValue, getComponentConfig, getBreakpoints, getBreakpointsUp, getBreakpointsDown, getBreakpointsCached, getBreakpointsUpCached, getBreakpointsDownCached */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setConfig", function() { return setConfig; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetConfig", function() { return resetConfig; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getConfig", function() { return getConfig; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDefaults", function() { return getDefaults; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getConfigValue", function() { return getConfigValue; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getComponentConfig", function() { return getComponentConfig; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBreakpoints", function() { return getBreakpoints; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBreakpointsUp", function() { return getBreakpointsUp; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBreakpointsDown", function() { return getBreakpointsDown; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBreakpointsCached", function() { return getBreakpointsCached; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBreakpointsUpCached", function() { return getBreakpointsUpCached; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBreakpointsDownCached", function() { return getBreakpointsDownCached; });
-/* harmony import */ var _clone_deep__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./clone-deep */ "./node_modules/bootstrap-vue/src/utils/clone-deep.js");
-/* harmony import */ var _get__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./get */ "./node_modules/bootstrap-vue/src/utils/get.js");
-/* harmony import */ var _memoize__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./memoize */ "./node_modules/bootstrap-vue/src/utils/memoize.js");
-/* harmony import */ var _warn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./warn */ "./node_modules/bootstrap-vue/src/utils/warn.js");
-/* harmony import */ var _inspect__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./inspect */ "./node_modules/bootstrap-vue/src/utils/inspect.js");
-/* harmony import */ var _object__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./object */ "./node_modules/bootstrap-vue/src/utils/object.js");
-
-
-
-
-
-
-
-// General BootstrapVue configuration
-//
-// BREAKPOINT DEFINITIONS
-//
-// Some components (BCol and BFormGroup) generate props based on breakpoints, and this
-// occurs when the component is first loaded (evaluated), which may happen before the
-// config is created/modified
-//
-// To get around this we make these components async (lazy evaluation)
-// The component definition is only called/executed when the first access to the
-// component is used (and cached on subsequent uses)
-//
-// See: https://vuejs.org/v2/guide/components-dynamic-async.html#Async-Components
-//
-// PROP DEFAULTS
-//
-// For default values on props, we use the default value factory function approach so
-// so that the default values are pulled in at each component instantiation
-//
-//  props: {
-//    variant: {
-//      type: String,
-//      default: () => getConfigComponent('BAlert', 'variant')
-//    }
-//  }
-
-// prettier-ignore
-const DEFAULTS = {
-  // Breakpoints
-  breakpoints: ['xs', 'sm', 'md', 'lg', 'xl'],
-
-  // Component Specific defaults are keyed by the component
-  // name (PascalCase) and prop name (camelCase)
-  BAlert: {
-    dismissLabel: 'Close',
-    variant: 'info'
-  },
-  BBadge: {
-    variant: 'secondary'
-  },
-  BButton: {
-    variant: 'secondary'
-  },
-  BButtonClose: {
-    // `textVariant` is `null` to inherit the current text color
-    textVariant: null,
-    ariaLabel: 'Close'
-  },
-  BCardSubTitle: {
-    // BCard and BCardBody also inherit this prop
-    subTitleTextVariant: 'muted'
-  },
-  BCarousel: {
-    labelPrev: 'Previous Slide',
-    labelNext: 'Next Slide',
-    labelGotoSlide: 'Goto Slide',
-    labelIndicators: 'Select a slide to display'
-  },
-  BDropdown: {
-    toggleText: 'Toggle Dropdown',
-    variant: 'secondary'
-  },
-  BFormFile: {
-    browseText: 'Browse',
-    // Chrome default file prompt
-    placeholder: 'No file chosen',
-    dropPlaceholder: 'Drop files here'
-  },
-  BFormText: {
-    textVariant: 'muted'
-  },
-  BImg: {
-    blankColor: 'transparent'
-  },
-  BImgLazy: {
-    blankColor: 'transparent'
-  },
-  BModal: {
-    cancelTitle: 'Cancel',
-    cancelVariant: 'secondary',
-    okTitle: 'OK',
-    okVariant: 'primary',
-    headerCloseLabel: 'Close'
-  },
-  BNavbarToggle: {
-    label: 'Toggle navigation'
-  },
-  BToast: {
-    toaster: 'b-toaster-top-right'
-  }
-}
-
-// This contains user defined configuration
-let CONFIG = {}
-
-// Method to get a deep clone (immutable) copy of the defaults
-const getDefaults = () => Object(_clone_deep__WEBPACK_IMPORTED_MODULE_0__["default"])(DEFAULTS)
-
-// Method to set the config
-// Merges in only known top-level and sub-level keys
-//   Vue.use(BootstrapVue, config)
-// or
-//   BootstrapVue.setConfig(config)
-//   Vue.use(BootstrapVue)
-
-const setConfig = (config = {}) => {
-  if (!Object(_inspect__WEBPACK_IMPORTED_MODULE_4__["isObject"])(config)) {
-    /* istanbul ignore next */
-    return
-  }
-
-  Object(_object__WEBPACK_IMPORTED_MODULE_5__["keys"])(config)
-    .filter(cmpName => config.hasOwnProperty(cmpName))
-    .forEach(cmpName => {
-      if (!DEFAULTS.hasOwnProperty(cmpName)) {
-        /* istanbul ignore next */
-        Object(_warn__WEBPACK_IMPORTED_MODULE_3__["default"])(`config: unknown config property "${cmpName}"`)
-        /* istanbul ignore next */
-        return
-      }
-      const cmpConfig = config[cmpName]
-      if (cmpName === 'breakpoints') {
-        // Special case for breakpoints
-        const breakpoints = config.breakpoints
-        if (
-          !Object(_inspect__WEBPACK_IMPORTED_MODULE_4__["isArray"])(breakpoints) ||
-          breakpoints.length < 2 ||
-          breakpoints.some(b => !Object(_inspect__WEBPACK_IMPORTED_MODULE_4__["isString"])(b) || b.length === 0)
-        ) {
-          /* istanbul ignore next */
-          Object(_warn__WEBPACK_IMPORTED_MODULE_3__["default"])('config: "breakpoints" must be an array of at least 2 breakpoint names')
-        } else {
-          CONFIG.breakpoints = Object(_clone_deep__WEBPACK_IMPORTED_MODULE_0__["default"])(breakpoints)
-        }
-      } else if (Object(_inspect__WEBPACK_IMPORTED_MODULE_4__["isObject"])(cmpConfig)) {
-        Object(_object__WEBPACK_IMPORTED_MODULE_5__["keys"])(cmpConfig)
-          .filter(key => cmpConfig.hasOwnProperty(key))
-          .forEach(key => {
-            if (!DEFAULTS[cmpName].hasOwnProperty(key)) {
-              /* istanbul ignore next */
-              Object(_warn__WEBPACK_IMPORTED_MODULE_3__["default"])(`config: unknown config property "${cmpName}.{$key}"`)
-            } else {
-              // If we pre-populate the config with defaults, we can skip this line
-              CONFIG[cmpName] = CONFIG[cmpName] || {}
-              if (!Object(_inspect__WEBPACK_IMPORTED_MODULE_4__["isUndefined"])(cmpConfig[key])) {
-                CONFIG[cmpName][key] = Object(_clone_deep__WEBPACK_IMPORTED_MODULE_0__["default"])(cmpConfig[key])
-              }
-            }
-          })
-      }
-    })
-}
-
-// Reset the user config to default
-// For testing purposes only
-const resetConfig = () => {
-  CONFIG = {}
-}
-
-// Get the current user config
-// For testing purposes only
-const getConfig = () => Object(_clone_deep__WEBPACK_IMPORTED_MODULE_0__["default"])(CONFIG)
-
-// Method to grab a config value based on a dotted/array notation key
-// Returns a deep clone (immutable) copy
-const getConfigValue = key => {
-  // First we try the user config, and if key not found we fall back to default value
-  // NOTE: If we deep clone DEFAULTS into config, then we can skip the fallback for get
-  return Object(_clone_deep__WEBPACK_IMPORTED_MODULE_0__["default"])(Object(_get__WEBPACK_IMPORTED_MODULE_1__["default"])(CONFIG, key, Object(_get__WEBPACK_IMPORTED_MODULE_1__["default"])(getDefaults(), key)))
-}
-
-// Method to grab a config value for a particular component.
-// Returns a deep clone (immutable) copy
-const getComponentConfig = (cmpName, key = null) => {
-  // Return the particular config value for key for if specified,
-  // otherwise we return the full config
-  return key ? getConfigValue(`${cmpName}.${key}`) : getConfigValue(cmpName) || {}
-}
-
-// Convenience method for getting all breakpoint names
-const getBreakpoints = () => getConfigValue('breakpoints')
-
-// Convenience method for getting all breakpoint names
-// Caches the results after first access
-const getBreakpointsCached = Object(_memoize__WEBPACK_IMPORTED_MODULE_2__["default"])(() => getConfigValue('breakpoints'))
-
-// Convenience method for getting breakpoints with
-// the smallest breakpoint set as ''
-// Useful for components that create breakpoint specific props
-const getBreakpointsUp = () => {
-  const breakpoints = getBreakpoints()
-  breakpoints[0] = ''
-  return breakpoints
-}
-
-// Convenience method for getting breakpoints with
-// the smallest breakpoint set as ''
-// Useful for components that create breakpoint specific props
-// Caches the results after first access
-const getBreakpointsUpCached = Object(_memoize__WEBPACK_IMPORTED_MODULE_2__["default"])(() => {
-  const breakpoints = getBreakpointsCached().slice()
-  breakpoints[0] = ''
-  return breakpoints
-})
-
-// Convenience method for getting breakpoints with
-// the largest breakpoint set as ''
-// Useful for components that create breakpoint specific props
-const getBreakpointsDown = () => {
-  const breakpoints = getBreakpoints()
-  breakpoints[breakpoints.length - 1] = ''
-  return breakpoints
-}
-
-// Convenience method for getting breakpoints with
-// the largest breakpoint set as ''
-// Useful for components that create breakpoint specific props
-// Caches the results after first access
-/* istanbul ignore next: we don't use this method anywhere, yet */
-const getBreakpointsDownCached = Object(_memoize__WEBPACK_IMPORTED_MODULE_2__["default"])(() => {
-  const breakpoints = getBreakpointsCached().slice()
-  breakpoints[breakpoints.length - 1] = ''
-  return breakpoints
-})
-
-// Named Exports
-
-
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/src/utils/env.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/bootstrap-vue/src/utils/env.js ***!
-  \*****************************************************/
-/*! exports provided: hasWindowSupport, hasDocumentSupport, hasNavigatorSupport, hasPromiseSupport, hasMutationObserverSupport, isBrowser, hasPassiveEventSupport, hasTouchSupport, hasPointerEventSupport, getEnv, getNoWarn */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(process) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hasWindowSupport", function() { return hasWindowSupport; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hasDocumentSupport", function() { return hasDocumentSupport; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hasNavigatorSupport", function() { return hasNavigatorSupport; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hasPromiseSupport", function() { return hasPromiseSupport; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hasMutationObserverSupport", function() { return hasMutationObserverSupport; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isBrowser", function() { return isBrowser; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hasPassiveEventSupport", function() { return hasPassiveEventSupport; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hasTouchSupport", function() { return hasTouchSupport; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hasPointerEventSupport", function() { return hasPointerEventSupport; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getEnv", function() { return getEnv; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getNoWarn", function() { return getNoWarn; });
-/**
- * Utilities to get information about the current environment
- */
-
-// --- Constants ---
-
-const hasWindowSupport = typeof window !== 'undefined'
-const hasDocumentSupport = typeof document !== 'undefined'
-const hasNavigatorSupport = typeof navigator !== 'undefined'
-const hasPromiseSupport = typeof Promise !== 'undefined'
-const hasMutationObserverSupport =
-  typeof MutationObserver !== 'undefined' ||
-  typeof WebKitMutationObserver !== 'undefined' ||
-  typeof MozMutationObserver !== 'undefined'
-
-const isBrowser = hasWindowSupport && hasDocumentSupport && hasNavigatorSupport
-
-// Determine if the browser supports the option passive for events
-const hasPassiveEventSupport = (() => {
-  let passiveEventSupported = false
-  if (isBrowser) {
-    try {
-      const options = {
-        get passive() {
-          // This function will be called when the browser
-          // attempts to access the passive property.
-          /* istanbul ignore next: will never be called in JSDOM */
-          passiveEventSupported = true
-        }
-      }
-      window.addEventListener('test', options, options)
-      window.removeEventListener('test', options, options)
-    } catch (err) {
-      /* istanbul ignore next: will never be called in JSDOM */
-      passiveEventSupported = false
-    }
-  }
-  return passiveEventSupported
-})()
-
-const hasTouchSupport =
-  isBrowser && ('ontouchstart' in document.documentElement || navigator.maxTouchPoints > 0)
-
-const hasPointerEventSupport =
-  isBrowser && Boolean(window.PointerEvent || window.MSPointerEvent)
-
-// --- Getters ---
-
-const getEnv = (key, fallback = null) => {
-  const env = typeof process !== 'undefined' && process ? Object({"MIX_SERVICE_ID":"http://contacts.devbox.red24.com","NODE_ENV":"development"}) || false : {}
-  if (!key) {
-    /* istanbul ignore next */
-    return env
-  }
-  return env[key] || fallback
-}
-
-const getNoWarn = () => getEnv('BOOTSTRAP_VUE_NO_WARN')
-
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../process/browser.js */ "./node_modules/process/browser.js")))
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/src/utils/get.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/bootstrap-vue/src/utils/get.js ***!
-  \*****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _inspect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./inspect */ "./node_modules/bootstrap-vue/src/utils/inspect.js");
-
-
-/**
- * Get property defined by dot/array notation in string.
- *
- * @link https://gist.github.com/jeneg/9767afdcca45601ea44930ea03e0febf#gistcomment-1935901
- *
- * @param {Object} obj
- * @param {string|Array} path
- * @param {*} defaultValue (optional)
- * @return {*}
- */
-const get = (obj, path, defaultValue = null) => {
-  // Handle array of path values
-  path = Object(_inspect__WEBPACK_IMPORTED_MODULE_0__["isArray"])(path) ? path.join('.') : path
-
-  // If no path or no object passed
-  if (!path || !Object(_inspect__WEBPACK_IMPORTED_MODULE_0__["isObject"])(obj)) {
-    return defaultValue
-  }
-
-  // Handle edge case where user has dot(s) in top-level item field key
-  // See https://github.com/bootstrap-vue/bootstrap-vue/issues/2762
-  if (obj.hasOwnProperty(path)) {
-    return obj[path]
-  }
-
-  // Handle string array notation (numeric indices only)
-  path = String(path).replace(/\[(\d+)]/g, '.$1')
-
-  const steps = path.split('.').filter(Boolean)
-
-  // Handle case where someone passes a string of only dots
-  if (steps.length === 0) {
-    return defaultValue
-  }
-
-  // Traverse path in object to find result
-  return steps.every(step => Object(_inspect__WEBPACK_IMPORTED_MODULE_0__["isObject"])(obj) && obj.hasOwnProperty(step) && (obj = obj[step]) != null)
-    ? obj
-    : defaultValue
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (get);
-
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/src/utils/inspect.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/bootstrap-vue/src/utils/inspect.js ***!
-  \*********************************************************/
-/*! exports provided: toType, toRawType, toRawTypeLC, isUndefined, isNull, isFunction, isBoolean, isString, isNumber, isPrimitive, isDate, isRegExp, isPromise, isArray, isObject, isPlainObject */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toType", function() { return toType; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toRawType", function() { return toRawType; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toRawTypeLC", function() { return toRawTypeLC; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isUndefined", function() { return isUndefined; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isNull", function() { return isNull; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isFunction", function() { return isFunction; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isBoolean", function() { return isBoolean; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isString", function() { return isString; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isNumber", function() { return isNumber; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isPrimitive", function() { return isPrimitive; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isDate", function() { return isDate; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isRegExp", function() { return isRegExp; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isPromise", function() { return isPromise; });
-/* harmony import */ var _array__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./array */ "./node_modules/bootstrap-vue/src/utils/array.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isArray", function() { return _array__WEBPACK_IMPORTED_MODULE_0__["isArray"]; });
-
-/* harmony import */ var _object__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./object */ "./node_modules/bootstrap-vue/src/utils/object.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isObject", function() { return _object__WEBPACK_IMPORTED_MODULE_1__["isObject"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isPlainObject", function() { return _object__WEBPACK_IMPORTED_MODULE_1__["isPlainObject"]; });
-
-/**
- * Convenience inspection utilities
- */
-
-
-
-
-const toType = val => typeof val
-
-const toRawType = val => Object.prototype.toString.call(val).slice(8, -1)
-
-const toRawTypeLC = val => toRawType(val).toLowerCase()
-
-const isUndefined = val => val === undefined
-
-const isNull = val => val === null
-
-const isFunction = val => toType(val) === 'function'
-
-const isBoolean = val => toType(val) === 'boolean'
-
-const isString = val => toType(val) === 'string'
-
-const isNumber = val => toType(val) === 'number'
-
-const isPrimitive = val => isBoolean(val) || isString(val) || isNumber(val)
-
-const isDate = val => val instanceof Date
-
-const isRegExp = val => toRawType(val) === 'RegExp'
-
-const isPromise = val =>
-  !isUndefined(val) && !isNull(val) && isFunction(val.then) && isFunction(val.catch)
-
-// Extra convenience named re-exports
-
-
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/src/utils/memoize.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/bootstrap-vue/src/utils/memoize.js ***!
-  \*********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _object__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./object */ "./node_modules/bootstrap-vue/src/utils/object.js");
-
-
-const memoize = fn => {
-  const cache = Object(_object__WEBPACK_IMPORTED_MODULE_0__["create"])(null)
-
-  return (...args) => {
-    const argsKey = JSON.stringify(args)
-    return (cache[argsKey] = cache[argsKey] || fn.apply(null, args))
-  }
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (memoize);
-
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/src/utils/object.js":
-/*!********************************************************!*\
-  !*** ./node_modules/bootstrap-vue/src/utils/object.js ***!
-  \********************************************************/
-/*! exports provided: assign, getOwnPropertyNames, keys, defineProperties, defineProperty, freeze, getOwnPropertyDescriptor, getOwnPropertySymbols, getPrototypeOf, create, isFrozen, is, isObject, isPlainObject, omit, readonlyDescriptor */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "assign", function() { return assign; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getOwnPropertyNames", function() { return getOwnPropertyNames; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "keys", function() { return keys; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defineProperties", function() { return defineProperties; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defineProperty", function() { return defineProperty; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "freeze", function() { return freeze; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getOwnPropertyDescriptor", function() { return getOwnPropertyDescriptor; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getOwnPropertySymbols", function() { return getOwnPropertySymbols; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPrototypeOf", function() { return getPrototypeOf; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "create", function() { return create; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isFrozen", function() { return isFrozen; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "is", function() { return is; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isObject", function() { return isObject; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isPlainObject", function() { return isPlainObject; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "omit", function() { return omit; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "readonlyDescriptor", function() { return readonlyDescriptor; });
-/* harmony import */ var core_js_library_fn_object_assign__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/library/fn/object/assign */ "./node_modules/bootstrap-vue/node_modules/core-js/library/fn/object/assign.js");
-/* harmony import */ var core_js_library_fn_object_assign__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_library_fn_object_assign__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var core_js_library_fn_object_is__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/library/fn/object/is */ "./node_modules/bootstrap-vue/node_modules/core-js/library/fn/object/is.js");
-/* harmony import */ var core_js_library_fn_object_is__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_library_fn_object_is__WEBPACK_IMPORTED_MODULE_1__);
-
-
-
-// --- Static ---
-
-const assign = Object.assign || core_js_library_fn_object_assign__WEBPACK_IMPORTED_MODULE_0___default.a
-const getOwnPropertyNames = Object.getOwnPropertyNames
-const keys = Object.keys
-const defineProperties = Object.defineProperties
-const defineProperty = Object.defineProperty
-const freeze = Object.freeze
-const getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor
-const getOwnPropertySymbols = Object.getOwnPropertySymbols
-const getPrototypeOf = Object.getPrototypeOf
-const create = Object.create
-const isFrozen = Object.isFrozen
-const is = Object.is || core_js_library_fn_object_is__WEBPACK_IMPORTED_MODULE_1___default.a
-
-/**
- * Quick object check - this is primarily used to tell
- * Objects from primitive values when we know the value
- * is a JSON-compliant type.
- * Note object could be a complex type like array, date, etc.
- */
-const isObject = obj => obj !== null && typeof obj === 'object'
-
-/**
- * Strict object type check. Only returns true
- * for plain JavaScript objects.
- */
-const isPlainObject = obj => Object.prototype.toString.call(obj) === '[object Object]'
-
-// @link https://gist.github.com/bisubus/2da8af7e801ffd813fab7ac221aa7afc
-const omit = (obj, props) =>
-  keys(obj)
-    .filter(key => props.indexOf(key) === -1)
-    .reduce((result, key) => ({ ...result, [key]: obj[key] }), {})
-
-const readonlyDescriptor = () => ({ enumerable: true, configurable: false, writable: false })
-
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/src/utils/suffix-prop-name.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/src/utils/suffix-prop-name.js ***!
-  \******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _upper_first__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./upper-first */ "./node_modules/bootstrap-vue/src/utils/upper-first.js");
-
-
-/**
- * Suffix can be a falsey value so nothing is appended to string.
- * (helps when looping over props & some shouldn't change)
- * Use data last parameters to allow for currying.
- * @param {string} suffix
- * @param {string} str
- */
-const suffixPropName = (suffix, str) => str + (suffix ? Object(_upper_first__WEBPACK_IMPORTED_MODULE_0__["default"])(suffix) : '')
-
-/* harmony default export */ __webpack_exports__["default"] = (suffixPropName);
-
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/src/utils/upper-first.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/bootstrap-vue/src/utils/upper-first.js ***!
-  \*************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _inspect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./inspect */ "./node_modules/bootstrap-vue/src/utils/inspect.js");
-
-
-/**
- * Transform the first character to uppercase
- * @param {string} str
- */
-const upperFirst = str => {
-  if (!Object(_inspect__WEBPACK_IMPORTED_MODULE_0__["isString"])(str)) {
-    str = String(str)
-  }
-  str = str.trim()
-  return str.charAt(0).toUpperCase() + str.slice(1)
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (upperFirst);
-
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap-vue/src/utils/warn.js":
-/*!******************************************************!*\
-  !*** ./node_modules/bootstrap-vue/src/utils/warn.js ***!
-  \******************************************************/
-/*! exports provided: warnNotClient, warnNoPromiseSupport, warnNoMutationObserverSupport, default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "warnNotClient", function() { return warnNotClient; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "warnNoPromiseSupport", function() { return warnNoPromiseSupport; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "warnNoMutationObserverSupport", function() { return warnNoMutationObserverSupport; });
-/* harmony import */ var _env__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./env */ "./node_modules/bootstrap-vue/src/utils/env.js");
-
-
-/**
- * Log a warning message to the console with BootstrapVue formatting
- * @param {string} message
- */
-const warn = message => /* istanbul ignore next */ {
-  if (!Object(_env__WEBPACK_IMPORTED_MODULE_0__["getNoWarn"])()) {
-    console.warn(`[BootstrapVue warn]: ${message}`)
-  }
-}
-
-/**
- * Warn when no Promise support is given
- * @param {string} source
- * @returns {boolean} warned
- */
-const warnNotClient = source => {
-  /* istanbul ignore else */
-  if (_env__WEBPACK_IMPORTED_MODULE_0__["isBrowser"]) {
-    return false
-  } else {
-    warn(`${source}: Can not be called during SSR.`)
-    return true
-  }
-}
-
-/**
- * Warn when no Promise support is given
- * @param {string} source
- * @returns {boolean} warned
- */
-const warnNoPromiseSupport = source => {
-  /* istanbul ignore else */
-  if (_env__WEBPACK_IMPORTED_MODULE_0__["hasPromiseSupport"]) {
-    return false
-  } else {
-    warn(`${source}: Requires Promise support.`)
-    return true
-  }
-}
-
-/**
- * Warn when no MutationObserver support is given
- * @param {string} source
- * @returns {boolean} warned
- */
-const warnNoMutationObserverSupport = source => {
-  /* istanbul ignore else */
-  if (_env__WEBPACK_IMPORTED_MODULE_0__["hasMutationObserverSupport"]) {
-    return false
-  } else {
-    warn(`${source}: Requires MutationObserver support.`)
-    return true
-  }
-}
-
-// Default export
-/* harmony default export */ __webpack_exports__["default"] = (warn);
-
-
-/***/ }),
-
 /***/ "./node_modules/is-buffer/index.js":
 /*!*****************************************!*\
   !*** ./node_modules/is-buffer/index.js ***!
@@ -33819,6 +32898,191 @@ var __assign=function(){return(__assign=Object.assign||function(e){for(var a,s=1
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Contacts/component/ContactForm.vue?vue&type=template&id=1ce52134&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Contacts/component/ContactForm.vue?vue&type=template&id=1ce52134& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "b-col",
+    [
+      _c(
+        "b-form",
+        { on: { reset: _vm.onReset } },
+        [
+          _c("b-form-group", { attrs: { id: "input-group-0" } }, [
+            _c("span", { staticClass: "pull-right" }, [
+              _c("i", [
+                _vm._v(
+                  "You can either enter Contact Number or Contact Email for a valid Contact Detail"
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                id: "input-group-1",
+                label: "First Name:",
+                "label-for": "input-1"
+              }
+            },
+            [
+              _c("b-form-input", {
+                attrs: { id: "input-1", placeholder: "Enter fist name" },
+                model: {
+                  value: _vm.form.first_name,
+                  callback: function($$v) {
+                    _vm.$set(_vm.form, "first_name", $$v)
+                  },
+                  expression: "form.first_name"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                id: "input-group-2",
+                label: "Last Name:",
+                "label-for": "input-2"
+              }
+            },
+            [
+              _c("b-form-input", {
+                attrs: { id: "input-2", placeholder: "Enter last name" },
+                model: {
+                  value: _vm.form.last_name,
+                  callback: function($$v) {
+                    _vm.$set(_vm.form, "last_name", $$v)
+                  },
+                  expression: "form.last_name"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                id: "input-group-3",
+                label: "Number:",
+                "label-for": "input-3"
+              }
+            },
+            [
+              _c("b-form-input", {
+                attrs: {
+                  id: "input-3",
+                  type: "text",
+                  placeholder: "Enter number"
+                },
+                model: {
+                  value: _vm.form.number,
+                  callback: function($$v) {
+                    _vm.$set(_vm.form, "number", $$v)
+                  },
+                  expression: "form.number"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                id: "input-group4",
+                label: "Email:",
+                "label-for": "input-4"
+              }
+            },
+            [
+              _c("b-form-input", {
+                attrs: {
+                  id: "input-4",
+                  type: "email",
+                  placeholder: "Enter email"
+                },
+                model: {
+                  value: _vm.form.email,
+                  callback: function($$v) {
+                    _vm.$set(_vm.form, "email", $$v)
+                  },
+                  expression: "form.email"
+                }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "b-card-footer",
+        [
+          _c(
+            "b-button",
+            {
+              attrs: { type: "submit", variant: "outline-secondary" },
+              on: {
+                click: function($event) {
+                  return _vm.addDetail($event)
+                }
+              }
+            },
+            [_vm._v("Add Detail")]
+          ),
+          _vm._v(" "),
+          _c(
+            "b-button",
+            {
+              attrs: { type: "submit", variant: "outline-primary" },
+              on: {
+                submit: function($event) {
+                  return _vm.onSubmit($event)
+                }
+              }
+            },
+            [_vm._v("Save Contact")]
+          ),
+          _vm._v(" "),
+          _c("b-button", { attrs: { type: "reset", variant: "danger" } }, [
+            _vm._v("Dispose Entry")
+          ])
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Contacts/component/TableList.vue?vue&type=template&id=e7245088&":
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Contacts/component/TableList.vue?vue&type=template&id=e7245088& ***!
@@ -34103,173 +33367,9 @@ var render = function() {
   return _c(
     "div",
     [
-      _vm.show
-        ? _c(
-            "b-form",
-            { on: { submit: _vm.onSubmit, reset: _vm.onReset } },
-            [
-              _c("b-form-group", { attrs: { id: "input-group-0" } }, [
-                _c("span", { staticClass: "pull-right" }, [
-                  _c("i", [
-                    _vm._v(
-                      "You can either enter Contact Number or Contact Email for a valid Contact Detail"
-                    )
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "b-form-group",
-                {
-                  attrs: {
-                    id: "input-group-1",
-                    label: "First Name:",
-                    "label-for": "input-1"
-                  }
-                },
-                [
-                  _c("b-form-input", {
-                    attrs: { id: "input-1", placeholder: "Enter fist name" },
-                    model: {
-                      value: _vm.form.first_name,
-                      callback: function($$v) {
-                        _vm.$set(_vm.form, "first_name", $$v)
-                      },
-                      expression: "form.first_name"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-form-group",
-                {
-                  attrs: {
-                    id: "input-group-2",
-                    label: "Last Name:",
-                    "label-for": "input-2"
-                  }
-                },
-                [
-                  _c("b-form-input", {
-                    attrs: { id: "input-2", placeholder: "Enter last name" },
-                    model: {
-                      value: _vm.form.last_name,
-                      callback: function($$v) {
-                        _vm.$set(_vm.form, "last_name", $$v)
-                      },
-                      expression: "form.last_name"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-form-group",
-                {
-                  attrs: {
-                    id: "input-group-3",
-                    label: "Number:",
-                    "label-for": "input-3",
-                    description: "Part of a Contact Detail."
-                  }
-                },
-                [
-                  _c("b-form-input", {
-                    attrs: {
-                      id: "input-3",
-                      type: "text",
-                      placeholder: "Enter number"
-                    },
-                    model: {
-                      value: _vm.form.number,
-                      callback: function($$v) {
-                        _vm.$set(_vm.form, "number", $$v)
-                      },
-                      expression: "form.number"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-form-group",
-                {
-                  attrs: {
-                    id: "input-group4",
-                    label: "Email:",
-                    "label-for": "input-4",
-                    description: "Part of a Contact Detail."
-                  }
-                },
-                [
-                  _c("b-form-input", {
-                    attrs: {
-                      id: "input-4",
-                      type: "email",
-                      placeholder: "Enter email"
-                    },
-                    model: {
-                      value: _vm.form.email,
-                      callback: function($$v) {
-                        _vm.$set(_vm.form, "email", $$v)
-                      },
-                      expression: "form.email"
-                    }
-                  })
-                ],
-                1
-              )
-            ],
-            1
-          )
-        : _vm._e(),
+      _c("h5", [_vm._v("Create Contact")]),
       _vm._v(" "),
-      _c(
-        "b-card-footer",
-        [
-          _c(
-            "b-button",
-            { attrs: { type: "submit", variant: "outline-primary" } },
-            [_vm._v("Save Contact")]
-          ),
-          _vm._v(" "),
-          _c(
-            "b-button",
-            {
-              attrs: { type: "submit", variant: "outline-secondary" },
-              on: {
-                click: function($event) {
-                  return _vm.addDetail()
-                }
-              }
-            },
-            [_vm._v("Add Detail")]
-          ),
-          _vm._v(" "),
-          _c("b-button", { attrs: { type: "reset", variant: "danger" } }, [
-            _vm._v("Dispose Entry")
-          ]),
-          _vm._v(" "),
-          _c(
-            "b-button",
-            {
-              staticClass: "pull-right",
-              attrs: { type: "submit", variant: "primary" },
-              on: {
-                click: function($event) {
-                  return _vm.viewContacts()
-                }
-              }
-            },
-            [_vm._v("View Contacts")]
-          )
-        ],
-        1
-      )
+      _c("b-row", [_c("contact-form")], 1)
     ],
     1
   )
@@ -49076,6 +48176,75 @@ module.exports = g;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/js/Contacts/component/ContactForm.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/Contacts/component/ContactForm.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ContactForm_vue_vue_type_template_id_1ce52134___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ContactForm.vue?vue&type=template&id=1ce52134& */ "./resources/js/Contacts/component/ContactForm.vue?vue&type=template&id=1ce52134&");
+/* harmony import */ var _ContactForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ContactForm.vue?vue&type=script&lang=js& */ "./resources/js/Contacts/component/ContactForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ContactForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ContactForm_vue_vue_type_template_id_1ce52134___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ContactForm_vue_vue_type_template_id_1ce52134___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Contacts/component/ContactForm.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Contacts/component/ContactForm.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/Contacts/component/ContactForm.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ContactForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Contacts/component/ContactForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Contacts/component/ContactForm.vue?vue&type=template&id=1ce52134&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/Contacts/component/ContactForm.vue?vue&type=template&id=1ce52134& ***!
+  \****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactForm_vue_vue_type_template_id_1ce52134___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ContactForm.vue?vue&type=template&id=1ce52134& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Contacts/component/ContactForm.vue?vue&type=template&id=1ce52134&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactForm_vue_vue_type_template_id_1ce52134___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactForm_vue_vue_type_template_id_1ce52134___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 

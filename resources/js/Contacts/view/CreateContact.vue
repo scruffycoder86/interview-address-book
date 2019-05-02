@@ -13,6 +13,18 @@
 
     export default {
 
-        components: { ContactForm }
+        components: { ContactForm },
+
+        methods: {
+
+            onReset() {
+
+            },
+
+            onSubmit(event) {
+
+
+            }
+        }
     }
 </script>

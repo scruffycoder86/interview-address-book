@@ -1,6 +1,6 @@
 <template>
     <b-col>
-        <b-form @submit="onSubmit" @reset="onReset">
+        <b-form  @reset="onReset">
             <b-form-group id="input-group-0">
                 <span class="pull-right"><i>You can either enter Contact Number or Contact Email for a valid Contact Detail</i></span>
             </b-form-group>
@@ -44,13 +44,21 @@
             </b-form-group>
         </b-form>
         <b-card-footer>
-            <b-button type="submit" @click="addDetail()" variant="outline-secondary">Add Detail</b-button>
-            <b-button type="submit" variant="outline-primary">Save Contact</b-button>
+            <b-button type="submit" @click="addDetail($event)" variant="outline-secondary">Add Detail</b-button>
+            <b-button type="submit" @submit="onSubmit($event)" variant="outline-primary">Save Contact</b-button>
             <b-button type="reset" variant="danger">Dispose Entry</b-button>
         </b-card-footer>
     </b-col>
 </template>
 <script>
+
+    import axios from 'axios';
+
+    let api = axios.create({
+        baseURL: process.env.MIX_SERVICE_ID ,
+        headers: {'Content-Type': 'application/json'},
+        crossdomain: true
+    });
 
     export default {
 
@@ -65,28 +73,42 @@
                     number: '',
                     email: ''
                 },
-                detail: [
-                    {
-                        numbers: [],
-                        emails: []
-                    }
-                ],
-                show: true
+                details: [ ],
             }
         },
 
         methods: {
 
-            addDetail() {
+            addDetail(event) {
 
+                let entry = {
+                    number: this.form.number,
+                    email: this.form.email
+                };
+
+                this.details.push(entry);
+
+                event.preventDefault();
             },
 
             onReset() {
 
             },
 
-            onSubmit() {
+            onSubmit(event) {
 
+                alert(JSON.stringify(this.form));
+
+                api.post('/api/contacts', {
+                    params: {
+                        first_name: this.form.first_name,
+                        last_name: this.form.last,
+                        details: this.details }
+                }).then(function(response){
+                        this.$router.push({ name: "Contact List" });
+                    }).catch(function(error){
+                    console.log(error);
+                });
             }
         }
     }
